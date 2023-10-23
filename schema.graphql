@@ -1,0 +1,25 @@
+type Stock {
+    id: ID!
+    name: String!
+    tickerSymbol: String!
+    currentPrice: Float!
+    pastPrices: [Float!]
+    minPrice: Float!
+    maxPrice: Float!
+}
+
+type Query {
+    stock(id: ID!): Stock
+    stocks: [Stock]
+}
+
+type Mutation {
+    addStock(input: StockInput): Stock
+    updateStock(id: ID!, newPrice: Float!): Stock
+}
+
+input StockInput {
+    name: String!
+    tickerSymbol: String!
+    currentPrice: Float!
+}
